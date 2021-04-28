@@ -16,7 +16,7 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Leetcode283移动零 {
     public void moveZeroes(int[] nums) {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
