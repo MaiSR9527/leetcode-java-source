@@ -1,4 +1,4 @@
-package tree;
+package cn.tree;
 
 import common.TreeNode;
 

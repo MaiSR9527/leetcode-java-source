@@ -1,3 +1,5 @@
+package cn;
+
 import java.util.HashMap;
 
 /**
