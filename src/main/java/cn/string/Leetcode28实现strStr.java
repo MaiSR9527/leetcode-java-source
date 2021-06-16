@@ -1,4 +1,4 @@
-package cn;
+package cn.string;
 
 /**
  * 实现strStr()函数。
