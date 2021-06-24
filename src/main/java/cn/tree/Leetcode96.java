@@ -37,7 +37,7 @@ public class Leetcode96 {
     public int mathWay(int n) {
         long sum = 1;
         for (int i = 0; i < n; i++) {
-            sum = sum * 2 * (2 * i + 1) / (i + 2);
+            sum = sum * 2 * (2L * i + 1) / (i + 2);
         }
         return (int) sum;
     }
