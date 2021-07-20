@@ -1,6 +1,6 @@
 package cn.tree;
 
-import common.TreeNode;
+import cn.common.TreeNode;
 
 /**
  * 有序数组还原成二叉搜索树

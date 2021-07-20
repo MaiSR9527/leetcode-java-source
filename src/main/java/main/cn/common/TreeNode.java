@@ -1,4 +1,4 @@
-package common;
+package cn.common;
 
 public class TreeNode {
 

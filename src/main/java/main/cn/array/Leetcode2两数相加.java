@@ -1,4 +1,6 @@
 package cn.array;
+
+import cn.common.ListNode;
 /**
  * 题目：两数相加
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，
@@ -16,7 +18,7 @@ package cn.array;
  * @date 2020/12/23 23:54
  */
 public class Leetcode2两数相加 {
-    public ListNode addTwoNumbers(ListNode list1, ListNode list2) {
+    public ListNode addTwoNumbers(ListNode list1, cn.common.ListNode list2) {
         // 预先指针
         ListNode pre = new ListNode(0);
         ListNode current = pre;
@@ -42,14 +44,5 @@ public class Leetcode2两数相加 {
             current.next = new ListNode(carry);
         }
         return pre.next;
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
     }
 }

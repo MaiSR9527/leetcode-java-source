@@ -1,6 +1,6 @@
 package cn.tree;
 
-import common.TreeNode;
+import cn.common.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

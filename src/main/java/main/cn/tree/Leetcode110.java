@@ -1,6 +1,6 @@
 package cn.tree;
 
-import common.TreeNode;
+import cn.common.TreeNode;
 
 /**
  * 给定一个二叉树，判断它是否是高度平衡的二叉树。

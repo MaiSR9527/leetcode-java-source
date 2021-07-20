@@ -1,6 +1,6 @@
 package cn.tree;
 
-import common.TreeNode;
+import cn.common.TreeNode;
 
 /**
  * 校验二叉树是否是BST
