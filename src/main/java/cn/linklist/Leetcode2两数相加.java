@@ -1,4 +1,4 @@
-package cn.array;
+package cn.linklist;
 
 import cn.common.ListNode;
 /**
