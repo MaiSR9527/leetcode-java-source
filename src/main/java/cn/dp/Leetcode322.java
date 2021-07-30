@@ -25,9 +25,9 @@ public class Leetcode322 {
             return -1;
         }
         int res = 0;
-        new
         for (int coin : coins) {
 
         }
+        return 0;
     }
 }
