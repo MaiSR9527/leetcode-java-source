@@ -33,7 +33,7 @@ import java.util.HashMap;
  * @site https://www.maishuren.top
  * @date 2020/12/23 23:55
  */
-public class Leetcode3无重复字符的最长子串 {
+public class Leetcode3 {
 
     /**
      * 滑动窗口

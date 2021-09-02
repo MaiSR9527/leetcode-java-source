@@ -16,9 +16,13 @@ import java.util.Map;
  * @site https://www.maishuren.top
  * @date 2020/12/23 23:24
  */
-public class Leetcode1两数之和 {
+public class Leetcode1 {
     public int[] toSum(int[] nums, int target) {
-        // 每个元素只能用一次，只有一种结果。可以利用HashMap的特性，同样的key的hash值一样
+        return hash(nums, target);
+    }
+
+    private int[] hash(int[] nums, int target) {
+        // 每个元素只能用一次， 。可以利用HashMap的特性，同样的key的hash值一样
         // map的key位数组里的元素，value为给元素的下标
         Map<Integer, Integer> map = new HashMap<>(16);
         for (int i = 0; i < nums.length; i++) {
