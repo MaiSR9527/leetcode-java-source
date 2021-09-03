@@ -17,7 +17,7 @@ import cn.common.ListNode;
  * @version v1.0
  * @date 2020/12/23 23:54
  */
-public class Leetcode2两数相加 {
+public class Leetcode2 {
     public ListNode addTwoNumbers(ListNode list1, cn.common.ListNode list2) {
         // 预先指针
         ListNode pre = new ListNode(0);
