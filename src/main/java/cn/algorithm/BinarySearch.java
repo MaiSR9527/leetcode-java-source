@@ -9,6 +9,15 @@ package cn.algorithm;
  */
 public class BinarySearch {
 
+    public static void main(String[] args) {
+        int[] array = new int[]{1, 3, 5, 7, 9, 11, 19};
+        BinarySearch binarySearch = new BinarySearch();
+        System.out.println(binarySearch.search(array,7));
+        System.out.println(binarySearch.search(array,11));
+        System.out.println(binarySearch.searchRecursion(array,0));
+        System.out.println(binarySearch.searchRecursion(array,11));
+    }
+
     public int searchRecursion(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return -1;
@@ -62,7 +71,7 @@ public class BinarySearch {
             } else if (nums[mid] > target) {
                 end = mid - 1;
             } else {
-                start = end + 1;
+                start = mid + 1;
             }
         }
         return -1;
