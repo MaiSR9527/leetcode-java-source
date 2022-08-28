@@ -20,7 +20,7 @@ package cn.array;
  * @site https://www.maishuren.top
  * @date 2020/12/23 23:55
  */
-class Leetcode283移动零 {
+class Leetcode283 {
     public void moveZeroes(int[] nums) {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
