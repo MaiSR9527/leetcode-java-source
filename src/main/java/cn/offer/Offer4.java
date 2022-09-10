@@ -1,6 +1,7 @@
 package cn.offer;
 
 import cn.common.TreeNode;
+import cn.tree.printer.BinaryTrees;
 
 import java.util.Arrays;
 
@@ -20,7 +21,12 @@ import java.util.Arrays;
  */
 public class Offer4 {
     public static void main(String[] args) {
-
+        int[] preOrder = {1,2,4,7,3,5,6,8};
+        int[] inOrder = {4,7,2,1,5,3,8,6};
+        TreeNode treeNode = rebuildBinaryTree(preOrder, inOrder);
+        TreeNode treeNode2 = rebuildBinaryTree2(preOrder, inOrder);
+        System.out.println(treeNode);
+        System.out.println(treeNode2);
     }
 
     /**
@@ -50,16 +56,15 @@ public class Offer4 {
         return root;
     }
 
-    public TreeNode rebuildBinaryTree2(int[] preOrder, int[] inOrder) {
-        if (preOrder == null || preOrder.length == 0 ||
-                inOrder == null || inOrder.length == 0) {
+    public static TreeNode rebuildBinaryTree2(int[] preOrder, int[] inOrder) {
+        if (preOrder == null || preOrder.length == 0 || inOrder == null || inOrder.length == 0) {
             return null;
         }
         return helper(preOrder, 0, preOrder.length - 1, inOrder, 0, inOrder.
                 length - 1);
     }
 
-    private TreeNode helper(int[] preOrder, int preL, int preR, int[] inOrder, int inL, int inR) {
+    private static TreeNode helper(int[] preOrder, int preL, int preR, int[] inOrder, int inL, int inR) {
         if (preL > preR || inL > inR) {
             return null;
         }
