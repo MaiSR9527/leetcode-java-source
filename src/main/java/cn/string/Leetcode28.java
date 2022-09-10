@@ -23,7 +23,7 @@ package cn.string;
  * @site https://www.maishuren.top
  * @date 2020/12/23 23:55
  */
-public class Leetcode28实现strStr {
+public class Leetcode28 {
     public int strStr(String haystack, String needle) {
         int hayLen = haystack.length();
         int needLen = needle.length();

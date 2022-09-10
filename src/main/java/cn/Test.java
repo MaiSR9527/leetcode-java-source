@@ -11,6 +11,14 @@ public class Test {
         String s1 = "he"+"llo";
         String s2 = "hello";
         System.out.println(s2==s1); // true
+        int a = 3;
+        int b = 3;
+        a = a ^ b;
+        System.out.println(a);
+        b = a ^ b;
+        System.out.println(b);
+        a = a ^ b;
+        System.out.println(a + "," + b);
     }
 
     private static void stet1() {

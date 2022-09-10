@@ -29,6 +29,11 @@ import java.util.Stack;
  **/
 public class Leetcode32 {
 
+    /**
+     * TODO 完善算法
+     * @param s
+     * @return
+     */
     public int longestValidParentheses(String s) {
         Stack<Character> stack = new Stack<>();
         if (s == null || s.equals("")) {
