@@ -9,6 +9,7 @@ package cn.offer;
  *
  * @author MaiShuRen
  * @site https://www.maishuren.top
+ * @since 2022-09-10
  */
 public class Offer2 {
     public static void main(String[] args) {
