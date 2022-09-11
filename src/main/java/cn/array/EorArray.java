@@ -10,7 +10,7 @@ package cn.array;
 public class EorArray {
 
     public static void main(String[] args) {
-        int[] arr = {9, 5, 2, 5, 2, 6, 4, 2, 6, 7, 7, 4, 2, 9, 9,};
+        int[] arr = {9, 5, 2, 5, 2, 6, 4, 2, 6, 7, 7, 4, 2, 9, 9};
         int eor = 0;
         for (int i : arr) {
             eor ^= i;
