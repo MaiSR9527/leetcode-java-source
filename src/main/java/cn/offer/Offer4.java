@@ -1,84 +1,99 @@
 package cn.offer;
 
-import cn.common.TreeNode;
-import cn.tree.printer.BinaryTrees;
-
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 由前序和中序遍历重建二叉树
- * <p>
- * 题目描述：输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假
- * 设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列
- * {1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
- * 思路：先找出根节点，然后利用递归方法构造二叉树
- * <p>
- * 时间复杂度：O(n)，空间复杂度：O(n)
+ * 在一个二维数组中，每一行都按照从左到右递增排序。每一列都按照从上到下递增排序
+ * 输入这个数组和一个目标数，判断数组中是否存在这个数
  *
  * @author MaiShuRen
- * @site: https://www.maishuren.top
- * @since 2020-09-10
+ * @site https://www.maishuren.top
+ * @since 2022-09-10
  */
 public class Offer4 {
     public static void main(String[] args) {
-        int[] preOrder = {1,2,4,7,3,5,6,8};
-        int[] inOrder = {4,7,2,1,5,3,8,6};
-        TreeNode treeNode = rebuildBinaryTree(preOrder, inOrder);
-        TreeNode treeNode2 = rebuildBinaryTree2(preOrder, inOrder);
-        System.out.println(treeNode);
-        System.out.println(treeNode2);
+        int[][] arr = {
+                {1, 5, 7, 8, 10},
+                {2, 6, 9, 11, 14},
+                {5, 7, 15, 16, 19},
+                {8, 17, 25, 26, 29},
+                {10, 27, 35, 36, 39},
+        };
+        System.out.println("========双指针解法 时间复杂度O(mn) 空间复杂度O(1)=======");
+        System.out.println(Offer4.towPointer(arr, 6));
+        System.out.println(Offer4.towPointerReturnIndex(arr, 6));
+        // 有序 二分查找
+        System.out.println("===========二分查找 时间复杂度O(log mn) 空间复杂度O(1)=========");
+        System.out.println(binarySearch(arr, 9));
+
     }
 
-    /**
-     * 递归传入数组的拷贝
-     *
-     * @param preOrder 前序遍历
-     * @param inOrder  中序遍历
-     * @return 二叉树
-     */
-    public static TreeNode rebuildBinaryTree(int[] preOrder, int[] inOrder) {
-        if (preOrder == null || inOrder == null | preOrder.length == 0 || inOrder.length == 0) {
-            return null;
+    public static boolean towPointer(int[][] arr, int target) {
+        if (arr == null || arr.length == 0) {
+            return false;
         }
-        if (preOrder.length != inOrder.length) {
-            return null;
-        }
-        TreeNode root = new TreeNode(preOrder[0]);
-        for (int i = 0; i < preOrder.length; i++) {
-            if (preOrder[0] == inOrder[i]) {
-                root.left = rebuildBinaryTree(Arrays.copyOfRange(preOrder, 1, i + 1),
-                        Arrays.copyOfRange(inOrder, 0, i));
-                root.right = rebuildBinaryTree(Arrays.copyOfRange(preOrder, i + 1, preOrder.length),
-                        Arrays.copyOfRange(inOrder, i + 1, inOrder.length));
+
+        int row = 0;
+        int col = arr[0].length - 1;
+
+        while (row < arr.length && col >= 0) {
+            if (arr[row][col] == target) {
+                return true;
+            }
+            if (arr[row][col] > target) {
+                col--;
+            } else {
+                row++;
             }
         }
-
-        return root;
+        return false;
     }
 
-    public static TreeNode rebuildBinaryTree2(int[] preOrder, int[] inOrder) {
-        if (preOrder == null || preOrder.length == 0 || inOrder == null || inOrder.length == 0) {
-            return null;
+    public static List<Integer> towPointerReturnIndex(int[][] arr, int target) {
+        List<Integer> result = new ArrayList<>();
+        if (arr == null || arr.length == 0) {
+            return result;
         }
-        return helper(preOrder, 0, preOrder.length - 1, inOrder, 0, inOrder.
-                length - 1);
+
+        int row = 0;
+        int column = arr[0].length - 1;
+
+        while (row < arr.length && column >= 0) {
+            if (arr[row][column] == target) {
+                result.add(row);
+                result.add(column);
+                return result;
+            }
+            if (arr[row][column] > target) {
+                column--;
+            } else {
+                row++;
+            }
+        }
+        return result;
     }
 
-    private static TreeNode helper(int[] preOrder, int preL, int preR, int[] inOrder, int inL, int inR) {
-        if (preL > preR || inL > inR) {
-            return null;
+    public static boolean binarySearch(int[][] arr, int target) {
+        if (arr == null || arr.length == 0) {
+            return false;
         }
-        int rootVal = preOrder[preL];
-        int index = 0;
-        while (index <= inR && inOrder[index] != rootVal) {
-            index++;
+        int left = 0;
+        int right = arr.length * arr[0].length - 1;
+        int col = arr[0].length;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int value = arr[mid / col][mid % col];
+            if (value == target) {
+                System.out.println(mid / col + "," + mid % col);
+                return true;
+            } else if (value < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
-        TreeNode root = new TreeNode(rootVal);
-        root.left = helper(preOrder, preL + 1, preL - inL + index, inOrder,
-                inL, index);
-        root.right = helper(preOrder, preL - inL + index + 1, preR, inOrder,
-                index + 1, inR);
-        return root;
+        return false;
     }
 
 }

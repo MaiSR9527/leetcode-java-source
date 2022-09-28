@@ -1,47 +1,50 @@
 package cn.offer;
 
+import cn.common.ListNode;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 /**
- * 题目：求旋转数组的最小数字
- * 把一个数组最开始的若干元素搬到数组的末尾，我们称之为数组的旋转，输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。
- * 例如：
- * {3，4，5，1，2} 为 {1，2，3，4，5}的一个旋转，该数组的最小值为1.
- * 提醒：
- * 给出的所有元素都大于0，若数组长度小于0，请返回-1。假设数组中不存在重复元素
+ * 从尾到头打印链表
+ * 题目描述：输入一个链表，从尾到头打印链表每个节点的值。
+ * 思路：借助栈实现，或使用递归的方法。
  *
  * @author MaiShuRen
  * @site https://www.maishuren.top
- * @since 2022-09-26 22:46
- **/
+ * @since 2022-09-10
+ */
 public class Offer6 {
-
     public static void main(String[] args) {
-        int[] arr1 = {3, 4, 5, 1, 2};
-        int[] arr2 = {2, 2, 2, 0, 1};
-        int[] arr3 = {1, 1};
-        System.out.println(Offer6.minInReversingList(arr1));
-        System.out.println(Offer6.minInReversingList(arr2));
-        System.out.println(Offer6.minInReversingList(arr3));
+        System.out.println("=========使用栈打印==========");
+        System.out.println(printLinkListTailToHeadByStack(ListNode.buildListNode(1, 2, 4, 5, 6, 7, 8, 9, 12, 14, 55)));
+        System.out.println("=========使用递归打印==========");
+        System.out.println(printLinkListTailToHeadByRecursion(ListNode.buildListNode(1, 2, 4, 5, 6, 7, 8, 9, 12, 14, 55)));
     }
 
-    /**
-     * 二分查找：时间复杂度O(log n)  空间复杂都：O(1)
-     *
-     * @param arr
-     * @return
-     */
-    public static int minInReversingList(int[] arr) {
-        int left = 0;
-        int right = arr.length - 1;
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (arr[mid] > arr[right]) {
-                left = mid + 1;
-            } else if (arr[mid] < arr[right]) {
-                right = mid;
-            } else {
-                right--;
-            }
+    public static List<Integer> printLinkListTailToHeadByStack(ListNode listNode) {
+
+        List<Integer> result = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
+        while (listNode != null) {
+            stack.push(listNode.val);
+            listNode = listNode.next;
         }
-        return arr[left];
+        while (!stack.isEmpty()) {
+            result.add(stack.pop());
+        }
+        return result;
+    }
+
+    public static List<Integer> printLinkListTailToHeadByRecursion(ListNode listNode) {
+        List<Integer> result = new ArrayList<>();
+        if (listNode != null) {
+            if (listNode.next != null) {
+                result = printLinkListTailToHeadByRecursion(listNode.next);
+            }
+            result.add(listNode.val);
+        }
+        return result;
     }
 }
