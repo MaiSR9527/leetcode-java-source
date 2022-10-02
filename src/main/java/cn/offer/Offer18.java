@@ -63,7 +63,7 @@ public class Offer18 {
             pre = cur;
             cur = cur.next;
         }
-        // 关键：如果没有找到要
+        // 关键：如果没有找到要，cur会为空，这时候直接返回head即可。如果找到了移除cur，pre的next指向cur的next
         if (cur != null) {
             pre.next = cur.next;
         }
