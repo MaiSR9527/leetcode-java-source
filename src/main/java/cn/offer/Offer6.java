@@ -11,6 +11,8 @@ import java.util.Stack;
  * 题目描述：输入一个链表，从尾到头打印链表每个节点的值。
  * 思路：借助栈实现，或使用递归的方法。
  *
+ * 地址：https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+ *
  * @author MaiShuRen
  * @site https://www.maishuren.top
  * @since 2022-09-10

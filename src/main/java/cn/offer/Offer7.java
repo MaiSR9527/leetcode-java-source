@@ -14,8 +14,10 @@ import java.util.Arrays;
  * <p>
  * 时间复杂度：O(n)，空间复杂度：O(n)
  *
+ * 地址：https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/submissions/
+ *
  * @author MaiShuRen
- * @site: https://www.maishuren.top
+ * @site https://www.maishuren.top
  * @since 2020-09-10
  */
 public class Offer7 {
