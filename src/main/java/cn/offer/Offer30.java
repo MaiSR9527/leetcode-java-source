@@ -25,7 +25,7 @@ import java.util.Stack;
  * @site https://www.maishuren.top
  * @since 2022-10-06 21:31
  **/
-public class Offer26 {
+public class Offer30 {
 
     Stack<Integer> xStack;
     Stack<Integer> minStack;
@@ -33,7 +33,7 @@ public class Offer26 {
     /**
      * initialize your data structure here.
      */
-    public Offer26() {
+    public Offer30() {
         xStack = new Stack<>();
         minStack = new Stack<>();
     }
