@@ -30,7 +30,7 @@ import java.util.Queue;
  * @site https://www.maishuren.top
  * @since 2022-10-07 23:17
  **/
-public class Offer32 {
+public class Offer32First {
 
     public int[] levelOrder(TreeNode root) {
         if (root == null) {
