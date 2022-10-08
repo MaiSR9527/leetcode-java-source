@@ -41,6 +41,8 @@ public class Offer32Second {
         List<List<Integer>> res = new ArrayList<>();
         if (root != null) {
             queue.add(root);
+        } else {
+            return res;
         }
         while (!queue.isEmpty()) {
             List<Integer> temp = new ArrayList<>();
