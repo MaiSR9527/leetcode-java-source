@@ -30,8 +30,9 @@ public class Offer35 {
         // 2. 构建各新节点的 random 指向
         cur = head;
         while (cur != null) {
-            if (cur.random != null)
+            if (cur.random != null){
                 cur.next.random = cur.random.next;
+            }
             cur = cur.next.next;
         }
         // 3. 拆分两链表
