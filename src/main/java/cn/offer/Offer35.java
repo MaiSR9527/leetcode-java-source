@@ -1,6 +1,6 @@
 package cn.offer;
 
-import cn.common.Node;
+import cn.common.NodeRandom;
 
 /**
  * 题目：复杂链表的复制
@@ -15,14 +15,14 @@ import cn.common.Node;
  **/
 public class Offer35 {
 
-    public Node copyRandomList(Node head) {
+    public NodeRandom copyRandomList(NodeRandom head) {
         if (head == null) {
             return null;
         }
-        Node cur = head;
+        NodeRandom cur = head;
         // 1. 复制各节点，并构建拼接链表
         while (cur != null) {
-            Node tmp = new Node(cur.val);
+            NodeRandom tmp = new NodeRandom(cur.val);
             tmp.next = cur.next;
             cur.next = tmp;
             cur = tmp.next;
@@ -37,7 +37,7 @@ public class Offer35 {
         }
         // 3. 拆分两链表
         cur = head.next;
-        Node pre = head, res = head.next;
+        NodeRandom pre = head, res = head.next;
         while (cur.next != null) {
             pre.next = pre.next.next;
             cur.next = cur.next.next;
