@@ -45,23 +45,23 @@ public class Offer45 {
             return;
         }
         int low = left;
-        int hight = right;
+        int high = right;
         int i = low+1;
         String pivot = arr[low];
 
-        while (i <= hight) {
+        while (i <= high) {
             //比较大小
             if ((pivot+arr[i]).compareTo(arr[i]+pivot) > 0 ) {
                 swap(arr,i++,low++);
             } else if ((pivot+arr[i]).compareTo(arr[i]+pivot) < 0) {
-                swap(arr,i,hight--);
+                swap(arr,i,high--);
             } else {
                 i++;
             }
         }
 
         quickSort(arr,left,low-1);
-        quickSort(arr,hight+1,right);
+        quickSort(arr,high+1,right);
 
     }
     public void swap(String[] arr, int i, int j) {
