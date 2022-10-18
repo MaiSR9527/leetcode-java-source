@@ -60,21 +60,21 @@ public class Leetcode232 {
     }
 
     public int pop() {
-        if (outStack.isEmpty()) {
-            while (!inStack.isEmpty()) {
-                outStack.push(inStack.pop());
-            }
-        }
+        pushToOutStack();
         return outStack.pop();
     }
 
     public int peek() {
+        pushToOutStack();
+        return outStack.peek();
+    }
+
+    private void pushToOutStack() {
         if (outStack.isEmpty()) {
             while (!inStack.isEmpty()) {
                 outStack.push(inStack.pop());
             }
         }
-        return outStack.peek();
     }
 
     public boolean empty() {
