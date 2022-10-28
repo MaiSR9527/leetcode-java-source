@@ -31,9 +31,20 @@ public class MergeSort {
         int i = 0;
         int pL = left;
         int pR = mid + 1;
+        // min case: tow element,left === mid, mid + 1 === right
+        // merge：left < mid && mid + 1 < right ===> 左右区间合并
         while (pL <= mid && pR <= right) {
             help[i++] = arr[pL] <= arr[pR] ? arr[pL++] : arr[pR++];
         }
+        // mini case:
+        // left 位置上的是比right位置上大的话，pR++。
+        // 说明先进入help的是right上的数，此时需要把left上放进help，并且此时是pL===mid && mid
+        // 否则 pR === right
+
+        // merge:
+        // 左右区间，总会有一个区间会被排序完，放进help。
+        // 如果左区间被合并完，那么执行左区间的指针就会溢出，左区间的元素全都已经被放进了help。那把右区间的所有元素放进help，同时移动指向右区间的指针直至溢出。
+        // 如果是右区间被合并完，同理
         while (pL <= mid) {
             help[i++] = arr[pL++];
         }
@@ -46,7 +57,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = generateRandomArray(50, 100);
+        int[] arr = generateRandomArray(5, 100);
         System.out.println(Arrays.toString(arr));
         MergeSort.sort(arr);
         System.out.println(Arrays.toString(arr));
