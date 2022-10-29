@@ -35,13 +35,35 @@ public class Leetcode844 {
     }
 
     public boolean backspaceCompare(String s, String t) {
+        return rebuild(s).equals(rebuild(t));
+    }
+
+    private String rebuild(String str) {
+        StringBuilder sb = new StringBuilder();
+        if (str.length() == 0) {
+            return sb.toString();
+        }
+        for (int i = 0; i < str.length(); ++i) {
+            char c = str.charAt(i);
+            if (c != '#') {
+                sb.append(c);
+            } else {
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    public boolean backspaceCompareByStack(String s, String t) {
         if (s.length() == 0 && t.length() == 0) {
             return true;
         }
         Stack<Character> stack1 = new Stack<>();
         Stack<Character> stack2 = new Stack<>();
         for (char c1 : s.toCharArray()) {
-            if (c1 == '#' && stack1.isEmpty()){
+            if (c1 == '#' && stack1.isEmpty()) {
                 continue;
             }
             if (c1 == '#') {
@@ -51,7 +73,7 @@ public class Leetcode844 {
             }
         }
         for (char c2 : t.toCharArray()) {
-            if (c2 == '#' && stack2.isEmpty()){
+            if (c2 == '#' && stack2.isEmpty()) {
                 continue;
             }
             if (c2 == '#') {
