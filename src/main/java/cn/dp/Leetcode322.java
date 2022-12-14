@@ -1,5 +1,9 @@
 package cn.dp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 零钱兑换:
  * 给你一个整数数组 coins ，表示不同面额的硬币；以及一个整数 amount ，表示总金额。
@@ -13,21 +17,29 @@ package cn.dp;
  * 地址：https://leetcode-cn.com/problems/coin-change/
  *
  * @author MaiShuRen
- * @site https://www.maishuren.top
+ * @site <a href="https://www.maishuren.top">我的博客</a>
  * @date 2020/12/23 23:24
  */
 public class Leetcode322 {
     public int coinChange(int[] coins, int amount) {
-        if (amount == 0) {
-            return 1;
+        int[] arr = new int[amount + 1];
+        Arrays.fill(arr, amount + 1);
+        arr[0] = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int coin : coins) {
+                // 子问题无解
+                if (i - coin < 0) {
+                    continue;
+                }
+                arr[i] = Math.min(arr[i], 1 + arr[i - coin]);
+            }
         }
-        if (amount < 0) {
-            return -1;
-        }
-        int res = 0;
-        for (int coin : coins) {
+        return arr[amount] == amount + 1 ? -1 : arr[amount];
+    }
 
-        }
-        return 0;
+    public static void main(String[] args) {
+        int[] coins = {1, 2, 5};
+        Leetcode322 leetcode322 = new Leetcode322();
+        System.out.println(leetcode322.coinChange(coins, 11));
     }
 }
