@@ -8,7 +8,7 @@ import java.util.Arrays;
  * eg：[6,3,5,1,3,8,9]  => [0,0,3,0,1,18,26] => 48
  *
  * @author MaiShuRen
- * @site https://www.maishuren.top
+ * @site <a href="https://www.maishuren.top">我的博客</a>
  * @since 2022-10-29 16:13
  **/
 public class SmallerSum {
