@@ -47,16 +47,19 @@ public class Leetcode15 {
                     result.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     ++left;
                     --right;
+                    // 左右指针不重叠越界的情况下，如果左指针左移后大小等于左移前的值，做指针继续左移，主要是要去重
                     while (left < right && nums[left] == nums[left - 1]) {
                         ++left;
                     }
-
+                    // 右指针同理
                     while (left < right && nums[right] == nums[right + 1]) {
                         --right;
                     }
                 } else if (sum < 0) {
+                    // 三数和小于0，left指针左移
                     ++left;
                 } else {
+                    // 三数和大于0，right指针右移
                     --right;
                 }
             }
