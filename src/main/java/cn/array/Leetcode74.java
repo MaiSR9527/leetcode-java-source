@@ -34,11 +34,20 @@ public class Leetcode74 {
             return false;
         }
         int n = matrix[0].length;
-
         // 二分查找
         int left = 0;
         int right = m * n - 1;
-
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int minEle = matrix[mid / n][mid % n];
+            if (minEle < target) {
+                left = mid + 1;
+            } else if (minEle > target) {
+                right = mid - 1;
+            } else {
+                return true;
+            }
+        }
         return false;
     }
 }
